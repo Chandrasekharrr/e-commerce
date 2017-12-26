@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom';
 
 import App from './components/App';
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-);
+fetch('/api/')
+    .then(resp => resp.json())
+    .then(data => {
+        return ReactDOM.render(
+            <App initialData={data.post} />,
+            document.getElementById('root')
+        );
+    })

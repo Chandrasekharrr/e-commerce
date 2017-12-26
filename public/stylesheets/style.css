@@ -1,8 +1,24 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+nav {
+  padding: 0px 15px 0px 8px
 }
+
+.card-action > a {
+  cursor: pointer !important;
+}
+
+.brand-logo {
+  cursor: pointer
+}
+
+.brand-logo::selection {
+  background: transparent;
+}
+
+.brand-logo > img::selection {
+  background: transparent;
+}
+
