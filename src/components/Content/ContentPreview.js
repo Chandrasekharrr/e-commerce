@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ContentPreview = ({data, getDataContent}) => {
+    // Get content ID from data.id
     var handleClick = () => {
         getDataContent(data.id)
     }

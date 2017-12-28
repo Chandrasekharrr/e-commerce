@@ -15,6 +15,9 @@ export default class App extends Component {
         };
     };
 
+    // why i got error from esLint
+    // when i use anonymous func inside of class ?,
+    // it say "[eslint] Parsing error: Unexpected token ="
     gantiContent = (postId) => {
         if (!this.state.singlePage) {
             return <Content data={this.state.content}
@@ -24,6 +27,7 @@ export default class App extends Component {
         }
     }
 
+    // The data stored here 🏬 .. maybe
     singlePage = (e) => {
         if(!this.state.singlePage) {
             this.setState({

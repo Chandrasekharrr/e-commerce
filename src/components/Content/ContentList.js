@@ -5,8 +5,8 @@ import ContentPreview from './ContentPreview';
 const Content = ({data, singlePage}) => {
     return (
         <div className="row" >
-            {data.map((content) => {
-                return <ContentPreview getDataContent={singlePage} data={content} key={content.id} />
+            {Object.keys(data).map((content) => {
+                return <ContentPreview getDataContent={singlePage} data={data[content]} key={content} />
             })}
         </div>
     )
