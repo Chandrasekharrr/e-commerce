@@ -5,7 +5,7 @@ const Single = ({data}) => {
         <div className="singlePage">
             <div className="nengah">
                 <div className="gambar">
-                    <img src={data.imgSrc}/>
+                    <img src={data.imageSrc}/>
                 </div>
                 <div className="description">
                     <p>{data.description}</p>
