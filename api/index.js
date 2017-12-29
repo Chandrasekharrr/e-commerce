@@ -9,6 +9,7 @@ const data = post.reduce((obj, content) => {
                 return obj;
             }, {})
 
+// API index
 router.get('/', (req, res, next) => {
     res.json({post: data});
 })

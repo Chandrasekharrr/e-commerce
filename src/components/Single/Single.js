@@ -2,12 +2,13 @@ import React from 'react';
 
 const Single = ({data}) => {
     return(
-        <div className="singlePage">
-            <div className="nengah">
-                <div className="gambar">
-                    <img src={data.imageSrc}/>
+        <div className="container animate-balik">
+            <div className="card large">
+                <div className="card-image">
+                    <img src={data.imageSrc} />
+                    <span className="card-title"> {data.title} </span>
                 </div>
-                <div className="description">
+                <div className="card-content">
                     <p>{data.description}</p>
                 </div>
             </div>
