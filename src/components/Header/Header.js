@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchBar from './SearchBar';
 
 const Header = ({brand, backToHome}) => (
     <nav>
@@ -7,10 +8,11 @@ const Header = ({brand, backToHome}) => (
                 onClick={backToHome}> <img className="App-logo" /> { brand } </a>
             
             <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">JavaScript</a></li>
+                <li><a href="sass.html">Browse</a></li>
+                <li><a href="sass.html"><i className="fa fa-sign-in"></i> Login</a></li>
             </ul>
+
+            <SearchBar />
         </div>
     </nav>
 )

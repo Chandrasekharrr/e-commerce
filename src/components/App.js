@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 // import Components
 // The laziest name i've ever made
 import Header from './Header/Header';
@@ -55,8 +54,7 @@ export default class App extends Component {
     render(){
         return(
             <div>
-                <Header brand={this.state.Brand}
-                     />
+                <Header brand={this.state.Brand}/>
                 
                 {this.gantiContent()}
             </div>

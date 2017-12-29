@@ -3,7 +3,7 @@ body {
 }
 
 nav {
-  padding: 0px 15px 0px 8px
+  padding: 0px 15px 0px 8px;
 }
 
 .card-action>a {
@@ -16,4 +16,29 @@ nav {
 
 .brand-logo::selection {
   background: transparent;
+}
+
+.inline {
+  display: inline;
+}
+
+form.inline {
+  float: right;
+  margin-left: 21rem;
+  margin-right: 17rem
+}
+
+/* Searchbox style */
+
+.input {
+  background: #da5f63de;
+}
+
+.searchBar {
+  background-color: #da5f63de !important;
+  border: 1px #ce5b5fde !important;
+  padding: 5px 5px 5px 10px !important;
+  height: 2rem !important;
+  box-shadow: -0.5px 0.5px 1px rgba(56, 49, 49, 0.438) !important;
+  width: 450px !important;
 }
