@@ -27,7 +27,7 @@ export default class App extends Component {
     // it say "[eslint] Parsing error: Unexpected token ="
     // should i use bind ?
     gantiContent = (postId) => {
-        if (!this.state.singlePage) {
+        if (!this.state.singlePage || this.state.singlePage == false) {
             return <ContentList data={this.state.content}
                     singlePage={this.singlePage} />
         } else {
@@ -35,26 +35,37 @@ export default class App extends Component {
         }
     }
 
+    backToHome = () => {
+        if (this.state.singlePage) {
+            this.setState({
+                singlePage: false,
+                singlePageData: null,
+            })
+
+            historyPushState({contentId: null}, `/`)
+        }
+    }
+
     // The data stored here 🏬 .. maybe
     singlePage = (e) => {
-        if(!this.state.singlePage) {
-            this.setState({
-                singlePage: true,
-                singlePageData: this.state.content[e],
-            });
+        this.setState({
+            singlePage: true,
+            singlePageData: this.state.content[e],
+        });
 
-            historyPushState(
-                {contentId: e},
-                `/post/${e}`
-            )
-        }
+        historyPushState(
+            {contentId: e},
+            `/post/${e}`
+        )
+
         return this.gantiContent(e)
     }
 
     render(){
         return(
             <div>
-                <Header brand={this.state.Brand}/>
+                <Header brand={this.state.Brand} 
+                    backToHome={this.backToHome} />
                 
                 {this.gantiContent()}
             </div>
