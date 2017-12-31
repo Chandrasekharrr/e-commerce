@@ -22,6 +22,12 @@ export default class App extends Component {
         };
     };
 
+    // uhh.. i dont know how to use
+    // React lifecycle properly
+    componentWillUnmount() {
+        // do something here..
+    }
+
     // why i got an error from esLint
     // when i use anonymous func inside of class ,
     // it say "[eslint] Parsing error: Unexpected token ="
@@ -31,18 +37,7 @@ export default class App extends Component {
             return <ContentList data={this.state.content}
                     singlePage={this.singlePage} />
         } else {
-            return <SinglePage data={this.state.singlePageData} />
-        }
-    }
-
-    backToHome = () => {
-        if (this.state.singlePage) {
-            this.setState({
-                singlePage: false,
-                singlePageData: null,
-            })
-
-            historyPushState({contentId: null}, `/`)
+            return <SinglePage {...this.state.content} />
         }
     }
 
@@ -50,15 +45,20 @@ export default class App extends Component {
     singlePage = (e) => {
         this.setState({
             singlePage: true,
-            singlePageData: this.state.content[e],
+            content: this.state.content[e]
         });
-
-        historyPushState(
-            {contentId: e},
-            `/post/${e}`
-        )
-
+        historyPushState({contentId: e}, `/post/${e}`)
         return this.gantiContent(e)
+    }
+
+    backToHome = () => {
+        if (this.state.singlePage) {
+            this.setState({
+                singlePage: false,
+                content: this.props.initialData
+            })
+            historyPushState({contentId: null}, '/')
+        }
     }
 
     render(){
