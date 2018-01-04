@@ -4,7 +4,7 @@ import SingleContent from './SingleContent';
 
 const Single = (props) => {
     return(
-        <div className="single">
+        <div className="single" id="single">
             <div className="container">
                 <div className="col s12 m4 l8">
                     <div className="card" style={{width: '700px', margin: '0 auto'}}>

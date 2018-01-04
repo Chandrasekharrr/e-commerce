@@ -12,6 +12,6 @@ const data = post.reduce((obj, content) => {
 // API index
 router.get('/', (req, res, next) => {
     res.json({post: data});
-})
+});
 
 module.exports = router;
