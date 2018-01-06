@@ -1,9 +1,9 @@
 import React from 'react';
 
 const ContentPreview = ({data, getDataContent}) => {
-    // Get content ID from data.id
+    // Get content ID from data._id
     var handleClick = () => {
-        getDataContent(data.id)
+        getDataContent(data._id)
     }
 
     return (

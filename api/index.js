@@ -1,17 +1,22 @@
 var express = require('express');
 var router = express.Router();
+var Schema = require('../models/Schema');
+var mongoose = require('mongoose');
 
-// data JSON
-var contentPost, { post } = require('./dummyData.json');
-// Change the data from array object to object
-const data = post.reduce((obj, content) => {
-                obj[content.id] = content;
-                return obj;
-            }, {})
+mongoose.connect('mongodb://localhost/recommerce')
 
 // API index
 router.get('/', (req, res, next) => {
-    res.json({post: data});
+    Schema.find({}, function (err, result) {
+        if(err) throw err;
+        else {
+            let data = result.reduce((obj, data) => {
+                obj[data._id] = data;
+                return obj;
+            }, {})
+            res.json({post: data})
+        }
+    })
 });
 
 module.exports = router;
