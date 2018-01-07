@@ -65,7 +65,8 @@ export default class App extends Component {
         return(
             <div>
                 <Header brand={this.state.Brand} 
-                    backToHome={this.backToHome} />
+                    backToHome={this.backToHome} 
+                    singlePage={this.state.singlePage} />
                 
                 {this.gantiContent()}
             </div>
