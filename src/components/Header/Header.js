@@ -1,9 +1,9 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 
-const Header = ({brand, backToHome, singlePage}) => {
+const Header = ({brand, backToHome, singlePage, dataContent}) => {
     
-    let showSearch = () => (!singlePage || singlePage === false ? <SearchBar /> : '')
+    let showSearch = () => (!singlePage || singlePage === false ? <SearchBar data={dataContent} /> : '')
 
     return (
         <nav>

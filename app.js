@@ -4,12 +4,19 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+// Mongoose
+var mongoose = require('mongoose');
+// Models
+var Schema = require('./models/Schema');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var contentApi = require('./api/index');
 
 var app = express();
+
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/recommerce')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

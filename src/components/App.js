@@ -1,24 +1,31 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 // import Components
 // The laziest name i've ever made
 import Header from './Header/Header';
 import ContentList from './Content/ContentList';
 import SinglePage from './Single/Single';
 
-var onPopState = (e) => 
+const onPopState = (e) => 
     window.onpopstate(e);
 
 // Change the url with built-in module
 // obj will change the data, title, and the url
-var historyPushState = (obj, url) =>
+const historyPushState = (obj, url) =>
     window.history.pushState(obj, '', url)
+
+const postDatas = ({postDatas}) => {
+    return postDatas
+}
+
+module.exports = connect(postDatas);
 
 export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
             Brand: 'Re Commerce',
-            content: this.props.initialData,
+            content: postDatas,
         };
     };
 
@@ -66,7 +73,8 @@ export default class App extends Component {
             <div>
                 <Header brand={this.state.Brand} 
                     backToHome={this.backToHome} 
-                    singlePage={this.state.singlePage} />
+                    singlePage={this.state.singlePage}
+                    dataContent={this.props.initialData} />
                 
                 {this.gantiContent()}
             </div>
