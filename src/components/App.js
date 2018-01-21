@@ -14,58 +14,22 @@ const onPopState = (e) =>
 const historyPushState = (obj, url) =>
     window.history.pushState(obj, '', url)
 
-const postDatas = ({postDatas}) => {
-    return postDatas
-}
-
-module.exports = connect(postDatas);
-
 export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
             Brand: 'Re Commerce',
-            content: postDatas,
+            content: this.props.initialData,
         };
     };
 
-    // uhh.. i dont know how to use
-    // React lifecycle properly
-    componentWillUnmount() {
-        // do something here..
-    }
-
-    // why i got an error from esLint
-    // when i use anonymous func inside of class ,
-    // it say "[eslint] Parsing error: Unexpected token ="
-    // should i use bind ?
-    gantiContent = (postId) => {
-        if (!this.state.singlePage || this.state.singlePage == false) {
-            return <ContentList data={this.state.content}
-                    singlePage={this.singlePage} />
-        } else {
-            return <SinglePage {...this.state.content} />
-        }
-    }
-
     // The data stored here 🏬 .. maybe
-    singlePage = (e) => {
-        this.setState({
-            singlePage: true,
-            content: this.state.content[e]
-        });
+    singlePage(e) {
         historyPushState({contentId: e}, `/post/${e}`)
-        return this.gantiContent(e)
     }
 
-    backToHome = () => {
-        if (this.state.singlePage) {
-            this.setState({
-                singlePage: false,
-                content: this.props.initialData
-            })
-            historyPushState({contentId: null}, '/')
-        }
+    backToHome() {
+        historyPushState({contentId: null}, '/')
     }
 
     render(){
@@ -76,7 +40,7 @@ export default class App extends Component {
                     singlePage={this.state.singlePage}
                     dataContent={this.props.initialData} />
                 
-                {this.gantiContent()}
+                <ContentList />
             </div>
         )
     }

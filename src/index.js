@@ -8,18 +8,17 @@ import reducer from './reducer';
 import {getDataPost} from './reducer/post/actions';
 
 // controllers
-import content from '../controllers/content';
+import {show} from '../controllers/content'
 
 // Components
 import App from './components/App';
 const root = document.getElementById('root');
-const store = createStore(reducer, compose(
+var store = createStore(reducer, compose(
     applyMiddleware(thunk),
     window.devToolsExtension ? window.devToolsExtension() : f => f
 ))
 
 store.dispatch(getDataPost())
-
 
 ReactDOM.render(
     <Provider store={store}>

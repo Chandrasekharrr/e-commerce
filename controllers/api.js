@@ -18,7 +18,7 @@ module.exports = {
     // Showing json array
     array : function (req, res, next) {
         Schema.find({}, function (err, result) {
-            err ? res.send(err) : res.json(result)
+            err ? res.send(err) : res.json({post: result})
         })        
     } 
 }

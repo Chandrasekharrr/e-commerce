@@ -1,15 +1,18 @@
 import React from 'react';
+import {connect} from 'react-redux';
 // Import Components
 import ContentPreview from './ContentPreview';
 
-const Content = ({data, singlePage}) => {
+const Content = ({post}) => {
     return (
         <div className="row" >
-            {Object.keys(data).map((content) => {
-                return <ContentPreview getDataContent={singlePage} data={data[content]} key={content} />
-            })}
+            {post.map(e =>
+                <ContentPreview data={e} key={e._id}/>
+            )}
         </div>
     )
 }
 
-export default Content;
+const ContentMap = ({post}) => ({post})
+
+export default connect(ContentMap)(Content);
