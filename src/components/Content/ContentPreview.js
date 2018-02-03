@@ -1,26 +1,27 @@
 import React from 'react';
 
-const ContentPreview = ({data, getDataContent}) => {
+const ContentPreview = ({data}) => {
     // Get content ID from data._id
-    let handleClick = () => {
-        getDataContent(data._id)
-    }
-
+    
+    
     return (
-        <div className="col s12 m6 l3">
-            <div className="card small" style={{cursor: 'pointer'}}
-                onClick={handleClick}>
-                <div className="card-image">
+        <div className="card">
+            <div className="card-header-anim"></div>
+            <div className="card-header">
+                <div className="card-person">
+                    {/* <img /> */}
+                </div>
+                <div className="card-img-content">
                     <img src={data.imageSrc} />
-                    <span className="card-title"> {data.title} </span>
                 </div>
-                <div className="card-content">
-                    <p> {data.description} </p>
-                </div>
-                <div className="card-action">
-                    <a className="fa fa-heart"></a>
-                    <a className="fa fa-shopping-cart"></a>
-                </div>
+            </div>
+            <div className="card-content">
+                <div className="card-title">{data.title}</div>
+                <p>{data.description}</p>
+            </div>
+            <div className="card-footer">
+                <button className="btn"><i className="fa fa-shopping-cart"></i> BUY</button>
+                <button className="btn" title="add to wish list"><i className="fa fa-heart-o"></i> LOVE</button>
             </div>
         </div>
     )

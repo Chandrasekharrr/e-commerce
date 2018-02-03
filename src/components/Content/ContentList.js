@@ -1,18 +1,26 @@
 import React from 'react';
 import {connect} from 'react-redux';
-// Import Components
+// Components
 import ContentPreview from './ContentPreview';
+import { setCurrentPost } from '../../reducer/singlePost/actions';
 
-const Content = ({post}) => {
+const ContentList = ({post, singlePost}) => {
     return (
-        <div className="row" >
-            {post.map(e =>
-                <ContentPreview data={e} key={e._id}/>
-            )}
-        </div>
+        Object.keys(post).map((e) =>
+            <div className="row" onClick={singlePost(e._id)} key={e}>
+                <ContentPreview data={post[e]} />
+            </div>
+        )
     )
 }
 
-const ContentMap = ({post}) => ({post})
+const ContentListMap = ({post}) => ({post});
+const mapDispatchToProps = dispatch => ({
+    singlePost(id) {
+        return () => {
+            dispatch(setCurrentPost(id))
+        }
+    }
+})
 
-export default connect(ContentMap)(Content);
+export default connect(ContentListMap, mapDispatchToProps)(ContentList)

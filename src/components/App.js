@@ -34,13 +34,15 @@ export default class App extends Component {
 
     render(){
         return(
-            <div>
+            <div className="container">
                 <Header brand={this.state.Brand} 
                     backToHome={this.backToHome} 
                     singlePage={this.state.singlePage}
                     dataContent={this.props.initialData} />
                 
-                <ContentList />
+                <div className="content">
+                    <ContentList />
+                </div>
             </div>
         )
     }
