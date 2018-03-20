@@ -21,7 +21,7 @@ const ContentPreview = ({data}) => {
             </div>
             <div className="card-footer">
                 <button className="btn"><i className="fa fa-shopping-cart"></i> BUY</button>
-                <button className="btn" title="add to wish list"><i className="fa fa-heart-o"></i> LOVE</button>
+                <button className="btn" title="add to wish list"><i className="fa fa-heart-o"></i> WISH</button>
             </div>
         </div>
     )
