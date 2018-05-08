@@ -14,7 +14,7 @@ const SearchBar = ({data}) => {
     }
 
     return (
-        <div>
+        <div className="search-bar">
             <input type="text" name="cari" placeholder="Looking for something ?" />
             <button type="submit" className="btn add-on"><i className="fa fa-search"></i></button>
         </div>

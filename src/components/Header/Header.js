@@ -9,9 +9,7 @@ const Header = ({brand, backToHome, singlePage, dataContent}) => {
         <div className="navbar">
 			<ul>
 				<li><span className="navbar-brand" onClick={backToHome} >hastro</span></li>
-				<li className="search-bar">
-					{showSearch()}
-				</li>
+				<li>{showSearch()}</li>
 			</ul>
 		</div>
     )
