@@ -1,19 +1,19 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+let express = require('express');
+let path = require('path');
+let favicon = require('serve-favicon');
+let logger = require('morgan');
+let cookieParser = require('cookie-parser');
+let bodyParser = require('body-parser');
 // Mongoose
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 // Models
-var Schema = require('./models/Schema');
+let Schema = require('./models/Schema');
 // Routes
-var index = require('./routes/index');
-var users = require('./routes/users');
-var api = require('./routes/api');
+let index = require('./routes/index');
+let users = require('./routes/users');
+let api = require('./routes/api');
 
-var app = express();
+let app = express();
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/recommerce')
@@ -36,7 +36,7 @@ app.use('/api', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  let err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
